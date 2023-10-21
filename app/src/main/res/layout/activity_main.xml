@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:text="@string/welcome_text"
+            android:textStyle="bold|italic"
+            android:textAlignment="center"
+            android:translationZ="2dp"
+            android:lines="3"
+            android:textSize="90sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hostel"
+            android:scaleType="centerCrop"
+            android:alpha="0.5"
+            />
+
+        <Button
+            android:id="@+id/fetch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/fetch_hostels" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/faded_green"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/fetch_button" />
+
+</RelativeLayout>
