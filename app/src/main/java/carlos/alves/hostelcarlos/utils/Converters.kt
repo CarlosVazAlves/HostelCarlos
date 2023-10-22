@@ -8,10 +8,22 @@ import carlos.alves.hostelcarlos.api.HostelsList
 class Converters {
 
     companion object {
+
+        /**
+        * Converts Dollars to Euros.
+        * Returns String, so it is ready to go to a TextView
+        */
         fun convertDollarToEuroString(dollars: Float) = String.format("%.2f", dollars * AppConstants.DOLLAR_TO_EURO_CONVERSION_FACTOR)
 
+        /**
+        * Function to convert 1-100 rating to 1-10.0 range.
+        * If rating is 1, it means the hostel has not received any rating, so "Not yet rated" is returned
+        */
         fun convertRatingToDecimalString(context: Context, rating: Int?) = if (rating == null || rating == 0) context.getString(R.string.not_rated) else (rating * 0.1).toString()
 
+        /**
+        * Function to convert the HostelDTO received by the API call, to a parcel Hostel object to passed between activities
+        */
         fun convertToHostelDetailsArrayList(context: Context, hostelsList: HostelsList): ArrayList<HostelDetails> {
             val hostelDetailsList = arrayListOf<HostelDetails>()
             hostelsList.properties.forEach { hostelInfo -> hostelDetailsList.add(
