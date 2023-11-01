@@ -1,6 +1,8 @@
 package carlos.alves.hostelcarlos.api
 
+import android.content.Context
 import android.os.Parcelable
+import carlos.alves.hostelcarlos.R
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -22,4 +24,20 @@ data class ImagesGallery(val prefix: String, val suffix: String)
  * Hostel Parcel Object to passed around by activities
  */
 @Parcelize
-data class HostelDetails(val name: String, val district: String, val lowestPricePerNight: String, val overview: String, val overallRating: String, val imageLinks: List<String>, val isFeatured: Boolean) : Parcelable
+class HostelDetails(val name: String, val district: String, val lowestPricePerNight: String, val overview: String, val overallRating: String, val imageLinks: List<String>, val isFeatured: Boolean) : Parcelable {
+    fun formattedName(context: Context) : String {
+        return String.format(context.getString(R.string.name), this.name)
+    }
+
+    fun formattedLocation(context: Context) : String {
+        return String.format(context.getString(R.string.location), this.district)
+    }
+
+    fun formattedLowestPrice(context: Context) : String {
+        return String.format(context.getString(R.string.price), this.lowestPricePerNight)
+    }
+
+    fun formattedRating(context: Context) : String {
+        return String.format(context.getString(R.string.rating), this.overallRating)
+    }
+}
